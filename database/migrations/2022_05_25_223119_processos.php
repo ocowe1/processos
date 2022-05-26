@@ -15,7 +15,7 @@ class Processos extends Migration
     {
         Schema::create('processos', function (Blueprint $table) {
             $table->id('ProcessoID');
-            $table->integer('ClientCodigo');
+            $table->integer('ClienteCodigo');
             $table->integer('DespachanteID');
             $table->integer('TerminalAtracacaoID');
             $table->integer('NumeroProcesso');
