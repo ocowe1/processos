@@ -409,35 +409,52 @@
             font-family: 'Nunito', sans-serif;
             background-color: #e2e8f0;
         }
+        .comex{
+            background-image: url({{ asset('comex.png') }});
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0.2;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body class="antialiased">
-@if ($errors->any())
-    <div class="alert alert-danger d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
-            <use xlink:href="#exclamation-triangle-fill"/>
-        </svg>
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+<div class="comex">
+</div>
+    @if ($errors->any())
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
+    <div class="container">
+        <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
+
+            <img src="{{ asset('d2p.png') }}" height="300" width="300" alt="D2P Logo">
+
+
+            <form action="{{ route('listar-processos') }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="codigo" class="form-label">Cliente Código:</label>
+                    <input type="number" class="form-control" id="codigo" required name="codigo"
+                           placeholder='Exemplo: 0000'>
+                    <hr>
+                    <button type="submit" class="btn btn-primary mb-3">Confirmar</button>
+                </div>
+            </form>
         </div>
     </div>
-@endif
-<div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
-    <form action="{{ route('listar-processos') }}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label for="codigo" class="form-label">Cliente Código:</label>
-            <input type="number" class="form-control" id="codigo" required name="codigo" placeholder='Exemplo: 00000'>
-            <hr>
-            <button type="submit" class="btn btn-primary mb-3">Confirmar</button>
-        </div>
-    </form>
-</div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

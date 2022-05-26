@@ -23,14 +23,28 @@
             font-family: 'Nunito', sans-serif;
             margin: 0;
         }
+        .comex{
+            background-image: url({{ asset('comex.png') }});
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0.2;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body class="antialiased">
+<div class="comex">
+</div>
 <div
     class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
     <div class="container">
         @if($processos->isEmpty())
-            <h3>Não há processos para <span class="badge bg-primary">{{ $codigo }}</span>.</h3>
+            <h3>Não há processos para código <span class="badge bg-primary">{{ $codigo }}</span>.</h3>
         @else
             <h3>Seus processos abaixo <span class="badge bg-primary">{{ $codigo }}</span> :</h3>
             <hr>
