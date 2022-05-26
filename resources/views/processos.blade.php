@@ -30,7 +30,7 @@
     class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
     <div class="container">
         @if($processos->isEmpty())
-            <h3>Não há processos.</h3>
+            <h3>Não há processos para <span class="badge bg-primary">{{ $codigo }}</span>.</h3>
         @else
             <h3>Seus processos abaixo <span class="badge bg-primary">{{ $codigo }}</span> :</h3>
             <hr>
